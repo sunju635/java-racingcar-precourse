@@ -1,7 +1,5 @@
 package racinggame.exception;
 
-import common.utils.StringUtils;
-
 public class GameExceptionChecker {
     private static final int CAR_NAME_MAX_LENGTH = 5;
     private static final int TRY_COUNT_MIN = 1;
@@ -24,7 +22,7 @@ public class GameExceptionChecker {
     }
 
     public void checkTryCountEmpty(String tryCount) throws GameException {
-        if(StringUtils.removeEmptyText(tryCount).length() < 1) {
+        if(tryCount.trim().length() < 1) {
             throw  new GameException(GameErrorCode.TRY_COUNT_EMPTY_ERROR);
         }
     }
