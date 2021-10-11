@@ -3,6 +3,7 @@ package racinggame.domain;
 import racinggame.exception.GameException;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -17,6 +18,15 @@ public class Cars {
         }
     }
 
+    public Cars(List<Car> cars) {
+        this.cars = cars;
+    }
+
+
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
     public Car get(int i) {
         return cars.get(i);
     }
@@ -24,7 +34,6 @@ public class Cars {
     public int size() {
         return cars.size();
     }
-
 
     public void forward() {
         for(Car car : this.cars) {

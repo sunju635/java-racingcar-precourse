@@ -1,38 +1,29 @@
-package racinggame;
+package racinggame.message;
 
 import nextstep.utils.Console;
 import racinggame.domain.Cars;
 import racinggame.domain.TryCount;
 import racinggame.exception.GameException;
-import racinggame.message.NoticeMessage;
 
-public class GameStarter {
-    Cars cars;
-    TryCount tryCount;
+public class MessageHandler {
 
-    public void start() {
-        askCars();
-        askTryCount();
-        new GamePlayer().play(cars, tryCount);
-    }
-
-    public void askCars() {
+    public Cars askingCars() {
         try {
             Console.printLine(NoticeMessage.INPUT_CARS_ASK_MESSAGE.getMessage());
-            cars = new Cars(Console.readLine());
+            return new Cars(Console.readLine());
         } catch (GameException e) {
             Console.printLine(e.getMessage());
-            askCars();
+            return askingCars();
         }
     }
 
-    public void askTryCount() {
+    public TryCount askingTryCount() {
         try {
             Console.printLine(NoticeMessage.INPUT_GAME_TRY_COUNT.getMessage());
-            tryCount = new TryCount(Console.readLine());
+            return new TryCount(Console.readLine());
         } catch (GameException e) {
             Console.printLine(e.getMessage());
-            askTryCount();
+            return askingTryCount();
         }
     }
 }
