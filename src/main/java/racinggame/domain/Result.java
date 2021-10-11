@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Result {
-
     List<Cars> results;
 
     public Result() {
@@ -21,5 +20,10 @@ public class Result {
 
     public List<Cars> toList() {
         return results;
+    }
+
+    public List<Car> getWinners() {
+        Cars resultCars = this.results.get(results.size()-1);
+        return resultCars.getWinners();
     }
 }

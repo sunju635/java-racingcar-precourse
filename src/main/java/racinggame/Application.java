@@ -9,6 +9,6 @@ public class Application {
         MessageHandler messageHandler = new MessageHandler();
         Cars cars = messageHandler.askingCars();
         TryCount tryCount = messageHandler.askingTryCount();
-        messageHandler.printGameUnitResult(new GamePlayer().play(cars, tryCount));
+        messageHandler.printGameResult(new GamePlayer().play(cars, tryCount));
     }
 }

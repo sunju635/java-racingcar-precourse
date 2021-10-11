@@ -4,6 +4,7 @@ import racinggame.exception.GameException;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Cars {
@@ -41,12 +42,17 @@ public class Cars {
     }
 
     public String getGameResultText() {
-        /*Collections.sort(this.cars, new Comparator<Car>() {
-            @Override
-            public int compare(Car car1, Car car2) {
-                return car1.getStep().getStep() - car2.getStep().getStep();
-            }
-        });
+        StringBuilder builder = new StringBuilder();
+
+        for(Car car : this.cars) {
+            builder.append(car.getCar() + " : " + car.getStep().getResultStep() + "\n");
+        }
+
+        return builder.toString();
+    }
+
+    public List<Car> getWinners() {
+        sortByLank();
 
         List<Car> result = new ArrayList<>();
         Car winner = this.cars.get(0);
@@ -56,15 +62,18 @@ public class Cars {
                 break;
             }
             result.add(winner);
-        }*/
-
-        StringBuilder builder = new StringBuilder();
-
-        for(Car car : this.cars) {
-            builder.append(car.getCar() + " : " + car.getStep().getResultStep() + "\n");
         }
 
-        return builder.toString();
+        return result;
+    }
+
+    private void sortByLank() {
+        Collections.sort(this.cars, new Comparator<Car>() {
+            @Override
+            public int compare(Car car1, Car car2) {
+                return car2.getStep().getStep() - car1.getStep().getStep();
+            }
+        });
     }
 
     @Override

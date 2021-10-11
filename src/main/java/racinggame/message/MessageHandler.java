@@ -7,6 +7,8 @@ import racinggame.domain.Result;
 import racinggame.domain.TryCount;
 import racinggame.exception.GameException;
 
+import java.util.List;
+
 public class MessageHandler {
 
     public Cars askingCars() {
@@ -29,14 +31,24 @@ public class MessageHandler {
         }
     }
 
-    public void printGameUnitResult(Result result) {
-        Console.printLine("");
+    private void printGameUnitResult(Result result) {
+        Console.printLine("\n" + NoticeMessage.OUTPUT_GAME_UNIT_RESULT_TITLE.getMessage());
         for(Cars cars : result.toList()) {
             Console.printLine(cars.getGameResultText());
         }
     }
 
-    public void printGameResult() {
+    public void printGameResult(Result result) {
+        printGameUnitResult(result);
+        Console.printLine(String.format(NoticeMessage.OUTPUT_GAME_RESULT.getMessage(), makeWinnerText(result.getWinners())));
+    }
 
+    private String makeWinnerText(List<Car> resultCar) {
+        String[] carNames = new String[resultCar.size()];
+        for(int i = 0; i < resultCar.size(); i++) {
+            carNames[i] = resultCar.get(i).getCar();
+        }
+
+        return String.join(",", carNames);
     }
 }
