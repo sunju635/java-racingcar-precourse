@@ -57,4 +57,46 @@ honux:-----
 ## 디렉터리 구조
 
 ```
+└─src
+    ├─main
+    │  └─java
+    │      ├─nextstep
+    │      │  └─utils
+    │      │          Console.java                  // Console 관련 utils
+    │      │          Randoms.java                  // Random 숫자 관련 utils
+    │      │
+    │      └─racinggame
+    │          │  Application.java                  // Game App(게임 시작)
+    │          │  GamePlayer.java                   // Game player
+    │          │
+    │          ├─domain
+    │          │      Car.java                      // Car name
+    │          │      Cars.java                     // Car name list
+    │          │      Result.java                   // Game 결과
+    │          │      Step.java                     // Car 전진 step
+    │          │      TryCount.java                 // 시도 회수
+    │          │
+    │          ├─exception
+    │          │      GameErrorCode.java            // Game error code
+    │          │      GameException.java            // Game 전역 Exception 처리
+    │          │      GameExceptionChecker.java     // Game Exception checker
+    │          │
+    │          └─message
+    │                  MessageHandler.java          // Message 처리기
+    │                  NoticeMessage.java           // Notice message
+    │
+    └─test
+        └─java
+            ├─nextstep
+            │  └─test
+            │          NSTest.java
+            │
+            └─racinggame
+                │  ApplicationTest.java
+                │
+                └─domain
+                        CarsTest.java
+                        CarTest.java
+                        StepTest.java
+                        TryCountTest.java
 ```
