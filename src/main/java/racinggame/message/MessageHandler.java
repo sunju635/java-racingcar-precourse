@@ -3,6 +3,7 @@ package racinggame.message;
 import nextstep.utils.Console;
 import racinggame.domain.Car;
 import racinggame.domain.Cars;
+import racinggame.domain.Result;
 import racinggame.domain.TryCount;
 import racinggame.exception.GameException;
 
@@ -28,10 +29,10 @@ public class MessageHandler {
         }
     }
 
-    public void printGameUnitResult(Cars cars) {
+    public void printGameUnitResult(Result result) {
         Console.printLine("");
-        for(Car car : cars.getCars()) {
-            Console.printLine(car.getCar() + " : " + car.getStep().getResultStep());
+        for(Cars cars : result.toList()) {
+            Console.printLine(cars.getGameResultText());
         }
     }
 

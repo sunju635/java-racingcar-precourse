@@ -8,7 +8,6 @@ import java.util.Objects;
 public class Car {
 
     private String car;
-
     private Step step;
 
     public Car(String car) throws GameException {
@@ -17,8 +16,17 @@ public class Car {
         step = new Step(0);
     }
 
+    public Car(Car car) {
+        this.car = car.getCar();
+        this.step = new Step(car.getStep().getStep());
+    }
+
     public void forward() {
         step.forward();
+    }
+
+    public boolean isWinner(Car winner) {
+        return winner.getStep().getStep() <= step.getStep() ? true : false;
     }
 
     @Override

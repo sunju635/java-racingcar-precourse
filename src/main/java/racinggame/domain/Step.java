@@ -30,6 +30,10 @@ public class Step {
         return  builder.toString();
     }
 
+    public int getStep() {
+        return step;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
