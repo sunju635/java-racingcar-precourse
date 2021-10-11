@@ -57,20 +57,23 @@ public class Cars {
 
     public List<Car> getWinners() {
         sortByLank();
-        return pickWinnerInSortedCars(this.cars.get(0));
-    }
 
-    private List<Car> pickWinnerInSortedCars(Car winner) {
         List<Car> result = new ArrayList<>();
-
         boolean isPickedWinner = true;
         int index = 0;
-        while(isPickedWinner) {
+        while (isPickedWinner) {
             result.add(this.cars.get(index));
-            isPickedWinner = this.cars.get(++index).isWinner(winner);
+            isPickedWinner = isPickedWinner(++index);
+        }
+        return result;
+    }
+
+    private boolean isPickedWinner(int index) {
+        if(index >= this.cars.size()) {
+            return false;
         }
 
-        return result;
+        return this.cars.get(index).isWinner(this.cars.get(0));
     }
 
     private void sortByLank() {
