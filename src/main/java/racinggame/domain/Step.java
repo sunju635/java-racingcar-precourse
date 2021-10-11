@@ -12,6 +12,7 @@ import java.util.Objects;
 public class Step {
     private static final int START_INCLUSIVE = 0;
     private static final int END_INCLUSIVE = 9;
+    private static final int FORWARD_MIN_STEP = 4;
 
     private int step;
 
@@ -24,7 +25,17 @@ public class Step {
     }
 
     public void forward(int step) {
-        this.step += step;
+        if(isForward(step)) {
+            this.step ++;
+        }
+    }
+
+    private boolean isForward(int step) {
+        if(step >= FORWARD_MIN_STEP) {
+            return true;
+        }
+
+        return false;
     }
 
     public String getResultStep() {
