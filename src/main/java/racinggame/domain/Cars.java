@@ -92,7 +92,7 @@ public class Cars {
         int index = 0;
         while (isPickedWinner) {
             result.add(this.cars.get(index));
-            isPickedWinner = isPickedWinner(++index);
+            isPickedWinner = isPickedWinner(++index, this.cars.get(0));
         }
         return result;
     }
@@ -105,12 +105,12 @@ public class Cars {
      *
      * @param index 우승자
      */
-    private boolean isPickedWinner(int index) {
+    private boolean isPickedWinner(int index, Car winner) {
         if(index >= this.cars.size()) {
             return false;
         }
 
-        return this.cars.get(index).isWinner(this.cars.get(0));
+        return this.cars.get(index).isWinner(winner);
     }
 
     /**
