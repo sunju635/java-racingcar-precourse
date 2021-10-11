@@ -11,11 +11,7 @@ public class Result {
     }
 
     public void add(Cars cars) {
-        List<Car> newCars = new ArrayList<>();
-        for(Car car : cars.toList()) {
-            newCars.add(new Car(car));
-        }
-        this.results.add(new Cars(newCars));
+        this.results.add(cars.makeNewCars());
     }
 
     public List<Cars> toList() {

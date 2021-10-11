@@ -23,8 +23,12 @@ public class Cars {
         this.cars = cars;
     }
 
-    public List<Car> toList() {
-        return Collections.unmodifiableList(cars);
+    public Cars makeNewCars() {
+        List<Car> newCars = new ArrayList<>();
+        for(Car car : this.cars) {
+            newCars.add(new Car(car));
+        }
+        return new Cars(newCars);
     }
 
     public Car get(int i) {
