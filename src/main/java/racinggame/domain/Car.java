@@ -6,11 +6,18 @@ import racinggame.exception.GameExceptionChecker;
 import java.util.Objects;
 
 public class Car {
-    String car;
+
+    private String car;
+    private Step step;
 
     public Car(String car) throws GameException {
         new GameExceptionChecker().checkCar(car);
         this.car = car;
+        step = new Step(0);
+    }
+
+    public void forward() {
+        step.forward();
     }
 
     @Override
@@ -24,5 +31,13 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(car);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "car='" + car + '\'' +
+                ", step=" + step +
+                '}';
     }
 }

@@ -34,4 +34,11 @@ public class Step {
     public int hashCode() {
         return Objects.hash(step);
     }
+
+    @Override
+    public String toString() {
+        return "Step{" +
+                "step=" + step +
+                '}';
+    }
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
+
     private List<Car> cars;
 
     public Cars(String cars) throws GameException {
@@ -24,4 +25,17 @@ public class Cars {
         return cars.size();
     }
 
+
+    public void forward() {
+        for(Car car : this.cars) {
+            car.forward();
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Cars{" +
+                "cars=" + cars +
+                '}';
+    }
 }

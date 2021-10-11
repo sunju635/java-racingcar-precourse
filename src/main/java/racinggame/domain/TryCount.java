@@ -5,7 +5,8 @@ import racinggame.exception.GameException;
 import racinggame.exception.GameExceptionChecker;
 
 public class TryCount {
-    int tryCount;
+
+    private int tryCount;
 
     public TryCount(String tryCount) throws GameException {
         GameExceptionChecker gameExceptionChecker = new GameExceptionChecker();
@@ -16,5 +17,16 @@ public class TryCount {
         } catch (NumberFormatException e) {
             throw new GameException(GameErrorCode.TRY_COUNT_FORMAT_ERROR);
         }
+    }
+
+    public int getTryCount() {
+        return tryCount;
+    }
+
+    @Override
+    public String toString() {
+        return "TryCount{" +
+                "tryCount=" + tryCount +
+                '}';
     }
 }
