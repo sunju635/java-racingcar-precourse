@@ -1,18 +1,22 @@
 package racinggame.domain;
 
-import common.utils.StringUtils;
+import racinggame.exception.GameException;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-    private List<String> cars;
+    private List<Car> cars;
 
-    public Cars(String cars) {
-        this.cars = Arrays.asList(StringUtils.removeEmptyText(cars).split(","));
+    public Cars(String cars) throws GameException {
+        String[] carArray = cars.split(",");
+        this.cars = new ArrayList<>();
+        for(String car : carArray) {
+            this.cars.add(new Car(car.trim()));
+        }
     }
 
-    public String get(int i) {
+    public Car get(int i) {
         return cars.get(i);
     }
 

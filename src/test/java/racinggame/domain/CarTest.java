@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import racinggame.exception.GameErrorCode;
 import racinggame.exception.GameException;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class CarTest {

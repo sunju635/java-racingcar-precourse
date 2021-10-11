@@ -18,8 +18,7 @@ public class CarsTest {
         assertThat(cars.size()).isEqualTo(array.length); //길이 확인
 
         for(int i = 0; i < cars.size(); i++) {
-            assertThat(cars.get(i)).doesNotContain(" "); //공백 제거 확인
-            assertThat(cars.get(i)).isEqualTo(array[i].replaceAll(" ", "")); //item 확인
+            assertThat(cars.get(i)).isEqualTo(new Car(array[i].trim())); //item 확인
         }
     }
 }
