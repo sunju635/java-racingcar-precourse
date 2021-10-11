@@ -11,7 +11,7 @@ public class CarTest {
     Car car;
 
     @ParameterizedTest
-    @ValueSource(strings = {"", " ", "  "})
+    @ValueSource(strings = {""})
     void Car_이름_분리_EMPTY_실패(String input) {
         assertThatExceptionOfType(GameException.class).isThrownBy(
                 () -> {
