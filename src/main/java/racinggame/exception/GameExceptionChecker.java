@@ -2,10 +2,9 @@ package racinggame.exception;
 
 import common.utils.StringUtils;
 
-import java.util.List;
-
 public class GameExceptionChecker {
     private static final int CAR_NAME_MAX_LENGTH = 5;
+    private static final int TRY_COUNT_MIN = 1;
 
     private void checkCarEmpty(String car) throws GameException {
         if(car.length() < 1) {
@@ -27,6 +26,12 @@ public class GameExceptionChecker {
     public void checkTryCountEmpty(String tryCount) throws GameException {
         if(StringUtils.removeEmptyText(tryCount).length() < 1) {
             throw  new GameException(GameErrorCode.TRY_COUNT_EMPTY_ERROR);
+        }
+    }
+
+    public void checkTryCountNumber(int tryCount) throws GameException {
+        if(tryCount < TRY_COUNT_MIN) {
+            throw  new GameException(GameErrorCode.TRY_COUNT_MIN_ERROR);
         }
     }
 }

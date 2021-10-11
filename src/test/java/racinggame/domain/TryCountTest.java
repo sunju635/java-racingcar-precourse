@@ -36,4 +36,14 @@ public class TryCountTest {
                 }
         ).withMessageContaining(GameErrorCode.TRY_COUNT_FORMAT_ERROR.getErrorMessage());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"0", "-1"})
+    void 최소값_만족_실패(String input) {
+        assertThatExceptionOfType(GameException.class).isThrownBy(
+                () -> {
+                    tryCount = new TryCount(input);
+                }
+        ).withMessageContaining(GameErrorCode.TRY_COUNT_MIN_ERROR.getErrorMessage());
+    }
 }
