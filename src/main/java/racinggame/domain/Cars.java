@@ -1,6 +1,7 @@
 package racinggame.domain;
 
 import racinggame.exception.GameException;
+import racinggame.message.NoticeMessage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,7 +73,7 @@ public class Cars {
         StringBuilder builder = new StringBuilder();
 
         for(Car car : this.cars) {
-            builder.append(car.getCar() + " : " + car.getStep().getResultStep() + "\n");
+            builder.append(String.format(NoticeMessage.OUTPUT_GAME_UNIT_RESULT.getMessage(), car.getCar(), car.getStep().getResultStep()) + "\n");
         }
 
         return builder.toString();
