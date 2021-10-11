@@ -4,6 +4,11 @@ import nextstep.utils.Randoms;
 
 import java.util.Objects;
 
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public class Step {
     private static final int START_INCLUSIVE = 0;
     private static final int END_INCLUSIVE = 9;

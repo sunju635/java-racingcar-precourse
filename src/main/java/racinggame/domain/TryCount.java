@@ -4,6 +4,11 @@ import racinggame.exception.GameErrorCode;
 import racinggame.exception.GameException;
 import racinggame.exception.GameExceptionChecker;
 
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public class TryCount {
 
     private int tryCount;

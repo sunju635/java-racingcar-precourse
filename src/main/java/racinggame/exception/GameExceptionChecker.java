@@ -1,5 +1,10 @@
 package racinggame.exception;
 
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public class GameExceptionChecker {
     private static final int CAR_NAME_MAX_LENGTH = 5;
     private static final int TRY_COUNT_MIN = 1;
