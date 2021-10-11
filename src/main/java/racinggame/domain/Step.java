@@ -1,8 +1,12 @@
 package racinggame.domain;
 
+import nextstep.utils.Randoms;
+
 import java.util.Objects;
 
 public class Step {
+    private static final int START_INCLUSIVE = 0;
+    private static final int END_INCLUSIVE = 9;
 
     private int step;
 
@@ -11,9 +15,11 @@ public class Step {
     }
 
     public void forward() {
+        forward(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE));
     }
 
     public void forward(int step) {
+        this.step += step;
     }
 
     @Override
