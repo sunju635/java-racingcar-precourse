@@ -8,6 +8,7 @@ import java.util.Objects;
 public class Car {
 
     private String car;
+
     private Step step;
 
     public Car(String car) throws GameException {
@@ -39,5 +40,13 @@ public class Car {
                 "car='" + car + '\'' +
                 ", step=" + step +
                 '}';
+    }
+
+    public String getCar() {
+        return car;
+    }
+
+    public Step getStep() {
+        return step;
     }
 }

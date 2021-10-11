@@ -1,6 +1,7 @@
 package racinggame.message;
 
 import nextstep.utils.Console;
+import racinggame.domain.Car;
 import racinggame.domain.Cars;
 import racinggame.domain.TryCount;
 import racinggame.exception.GameException;
@@ -25,5 +26,16 @@ public class MessageHandler {
             Console.printLine(e.getMessage());
             return askingTryCount();
         }
+    }
+
+    public void printGameUnitResult(Cars cars) {
+        Console.printLine("");
+        for(Car car : cars.getCars()) {
+            Console.printLine(car.getCar() + " : " + car.getStep().getResultStep());
+        }
+    }
+
+    public void printGameResult() {
+
     }
 }

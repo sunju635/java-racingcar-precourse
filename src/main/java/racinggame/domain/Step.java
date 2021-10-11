@@ -22,6 +22,14 @@ public class Step {
         this.step += step;
     }
 
+    public String getResultStep() {
+        StringBuilder builder = new StringBuilder();
+        for(int i = 0; i < step; i++) {
+            builder.append("-");
+        }
+        return  builder.toString();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

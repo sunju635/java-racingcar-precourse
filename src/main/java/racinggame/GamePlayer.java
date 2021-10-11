@@ -3,6 +3,7 @@ package racinggame;
 import nextstep.utils.Console;
 import racinggame.domain.Cars;
 import racinggame.domain.TryCount;
+import racinggame.message.MessageHandler;
 
 public class GamePlayer {
     Cars cars;
@@ -12,7 +13,8 @@ public class GamePlayer {
         for(int i = 0; i < tryCount.getTryCount(); i++) {
             cars.forward();
             /*테스트 용도로 추후 삭제 해야함*/
-            Console.printLine("result: " + cars.toString());
+            //Console.printLine("result: " + cars.toString());
+            new MessageHandler().printGameUnitResult(cars);
         }
     }
 
