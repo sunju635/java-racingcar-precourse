@@ -1,5 +1,7 @@
 package racinggame.exception;
 
+import common.utils.StringUtils;
+
 import java.util.List;
 
 public class GameExceptionChecker {
@@ -23,7 +25,7 @@ public class GameExceptionChecker {
     }
 
     public void checkTryCountEmpty(String tryCount) throws GameException {
-        if(tryCount.replaceAll(" ", "").length() < 1) {
+        if(StringUtils.removeEmptyText(tryCount).length() < 1) {
             throw  new GameException(GameErrorCode.TRY_COUNT_EMPTY_ERROR);
         }
     }
