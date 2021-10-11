@@ -21,4 +21,10 @@ public class GameExceptionChecker {
         checkCarEmpty(car);
         checkCarLength(car);
     }
+
+    public void checkTryCountEmpty(String tryCount) throws GameException {
+        if(tryCount.replaceAll(" ", "").length() < 1) {
+            throw  new GameException(GameErrorCode.TRY_COUNT_EMPTY_ERROR);
+        }
+    }
 }
