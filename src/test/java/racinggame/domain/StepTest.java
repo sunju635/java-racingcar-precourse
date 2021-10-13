@@ -14,11 +14,20 @@ public class StepTest {
     }
 
     @Test
+    void 멈춤() {
+        int expectedStep = 0;
+        for(int i = 0; i < 4; i++) {
+            step.forward(i);
+            assertThat(step).isEqualTo(new Step(0));
+        }
+    }
+
+    @Test
     void 전진() {
         int expectedStep = 0;
-        for(int i = 0; i < 5; i++) {
+        for(int i = 4; i < 10; i++) {
             step.forward(i);
-            expectedStep += i;
+            expectedStep ++;
             assertThat(step).isEqualTo(new Step(expectedStep));
         }
     }
