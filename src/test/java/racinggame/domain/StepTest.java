@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StepTest {
+    private static final int END_INCLUSIVE = 9;
+    private static final int FORWARD_MIN_STEP = 4;
+
     Step step;
 
     @BeforeEach
@@ -15,8 +18,7 @@ public class StepTest {
 
     @Test
     void 멈춤() {
-        int expectedStep = 0;
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < FORWARD_MIN_STEP; i++) {
             step.forward(i);
             assertThat(step).isEqualTo(new Step(0));
         }
@@ -25,7 +27,7 @@ public class StepTest {
     @Test
     void 전진() {
         int expectedStep = 0;
-        for(int i = 4; i < 10; i++) {
+        for(int i = FORWARD_MIN_STEP; i <= END_INCLUSIVE; i++) {
             step.forward(i);
             expectedStep ++;
             assertThat(step).isEqualTo(new Step(expectedStep));
